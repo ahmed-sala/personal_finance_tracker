@@ -9,48 +9,49 @@
     android:background="@color/black">
 
     <LinearLayout
+        android:id="@+id/layoutContainer"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:padding="@dimen/padding_large"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:gravity="center"
-        />
+        app:layout_constraintEnd_toEndOf="parent">
 
-    <TextView
-        android:id="@+id/welcomTv"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:text="@string/Welcome_Guys"
-        android:textColor="@color/white"
-        android:textSize="@dimen/Welcome_Size"
-        />
+        <TextView
+            android:id="@+id/welcomTv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/Welcome_Guys"
+            android:textColor="@color/white"
+            android:textSize="@dimen/Welcome_Size"
+            android:textStyle="bold"
+            android:layout_marginBottom="@dimen/margin_large"
+            android:gravity="center" />
 
-    <Button
-        android:id="@+id/btnTrack"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/Track_Ur_Expence"
-        android:layout_marginTop="@dimen/margin_large"
-        app:layout_constraintTop_toBottomOf="@id/welcomTv"
-        app:layout_constraintEnd_toEndOf="@id/welcomTv"
-        app:layout_constraintStart_toStartOf="@id/welcomTv"
-        />
-    <Button
-        android:id="@+id/btnShare"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/Share"
-        android:layout_marginTop="@dimen/margin_large"
-        app:layout_constraintTop_toBottomOf="@id/btnTrack"
-        app:layout_constraintEnd_toEndOf="@id/welcomTv"
-        app:layout_constraintStart_toStartOf="@id/welcomTv"
-        />
+        <Button
+            android:id="@+id/btnTrack"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/Track_Ur_Expence"
+            android:layout_marginTop="@dimen/margin_large"
+            android:textColor="@color/white"
+            android:backgroundTint="@color/purple_500"
+            android:padding="@dimen/padding_medium"
+            android:textAllCaps="false"/>
+
+        <Button
+            android:id="@+id/btnShare"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/Share"
+            android:layout_marginTop="@dimen/margin_large"
+            android:textColor="@color/white"
+            android:backgroundTint="@color/teal_700"
+            android:padding="@dimen/padding_medium"
+            android:textAllCaps="false"/>
+    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
