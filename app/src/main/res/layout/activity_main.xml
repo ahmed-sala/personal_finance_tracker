@@ -24,7 +24,7 @@
             android:id="@+id/welcomTv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/Welcome_Guys"
+            android:text="Welcome to Finance Tracker"
             android:textColor="@color/white"
             android:textSize="@dimen/Welcome_Size"
             android:textStyle="bold"

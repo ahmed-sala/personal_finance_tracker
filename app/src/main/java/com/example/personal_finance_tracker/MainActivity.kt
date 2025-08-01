@@ -1,11 +1,12 @@
 package com.example.personal_finance_tracker
 
 import android.os.Bundle
-import androidx.appcompat.app.AppCompatActivity
 import android.widget.Button
 import android.widget.TextView
+import androidx.appcompat.app.AppCompatActivity
 
 class MainActivity : AppCompatActivity() {
+
     private lateinit var tvWelcome: TextView
     private lateinit var btnTrack: Button
     private lateinit var btnShare: Button
@@ -15,8 +16,17 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         tvWelcome = findViewById(R.id.welcomTv)
+
         btnTrack = findViewById(R.id.btnTrack)
         btnShare = findViewById(R.id.btnShare)
 
+
+        btnTrack.setOnClickListener {
+
+        }
+
+        btnShare.setOnClickListener {
+
+        }
     }
 }
