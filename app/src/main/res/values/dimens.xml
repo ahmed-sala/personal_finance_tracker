@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <dimen name="fab_margin">16dp</dimen>
-    <dimen name="margin_top">20dp</dimen>
     <dimen name="Welcome_Size">40sp</dimen>
-
+    <dimen name="activity_padding">24dp</dimen>
+    <dimen name="padding_medium">16dp</dimen>
+    <dimen name="padding_small">12dp</dimen>
+    <dimen name="margin_medium">16dp</dimen>
+    <dimen name="margin_large">24dp</dimen>
+    <dimen name="btn_top_margin">40dp</dimen>
+    <dimen name="form_container_elevation">2dp</dimen>
 </resources>

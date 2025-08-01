@@ -6,8 +6,72 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".FinanceActivity"
-    android:background="@color/black">
+    android:padding="@dimen/activity_padding"
+    android:fitsSystemWindows="true"
+    >
 
+    <LinearLayout
+        android:id="@+id/formItems"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/margin_large"
+        android:background="@android:color/white"
+        android:elevation="2dp"
+        android:orientation="vertical"
+        android:padding="@dimen/padding_medium"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.379">
 
+        <EditText
+            android:id="@+id/etExpenseName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/margin_medium"
+            android:autofillHints="name"
+            android:backgroundTint="@color/primary"
+            android:hint="@string/expense_name"
+            android:inputType="text"
+            android:padding="@dimen/padding_small" />
 
+        <EditText
+            android:id="@+id/etAmount"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/margin_medium"
+            android:autofillHints="phone"
+            android:backgroundTint="@color/primary"
+            android:hint="@string/amount"
+            android:inputType="numberDecimal"
+            android:padding="@dimen/padding_small" />
+    </LinearLayout>
+
+    <Spinner
+        android:id="@+id/spCategory"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin_large"
+        android:hint="@string/select_category"
+        android:background="@drawable/spinner_background"
+        android:padding="@dimen/padding_small"
+        android:spinnerMode="dropdown"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/formItems" />
+
+    <Button
+        android:id="@+id/btnSave"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/btn_top_margin"
+        android:backgroundTint="@color/primary"
+        android:text="@string/save_expense"
+        android:textColor="@android:color/white"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/spCategory" />
 </androidx.constraintlayout.widget.ConstraintLayout>
