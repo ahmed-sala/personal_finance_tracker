@@ -8,4 +8,10 @@
     <dimen name="margin_large">24dp</dimen>
     <dimen name="btn_top_margin">40dp</dimen>
     <dimen name="form_container_elevation">2dp</dimen>
+
+    <dimen name="padding_large">24dp</dimen>
+
 </resources>
+
+
+
