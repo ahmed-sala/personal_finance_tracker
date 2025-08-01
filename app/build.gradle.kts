@@ -5,12 +5,12 @@ plugins {
 
 android {
     namespace = "com.example.personal_finance_tracker"
-    compileSdk = 36
+    compileSdk = 35
 
     defaultConfig {
         applicationId = "com.example.personal_finance_tracker"
         minSdk = 24
-        targetSdk = 36
+        targetSdk = 34
         versionCode = 1
         versionName = "1.0"
 
