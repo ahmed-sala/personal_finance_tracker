@@ -31,9 +31,6 @@ class FinanceActivity : AppCompatActivity() {
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
         binding.spCategory .adapter = adapter
         binding.btnSave.setOnClickListener {
-            val category = binding.spCategory.selectedItem.toString()
-            val expenseName = binding.etExpenseName.text.toString()
-            val expenseAmount = binding.etAmount.text.toString().toDoubleOrNull() ?: 0.0
             binding.btnSave.setOnClickListener {
                 val category = binding.spCategory.selectedItem.toString()
                 val expenseName = binding.etExpenseName.text.toString()
