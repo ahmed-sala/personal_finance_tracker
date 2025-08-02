@@ -25,4 +25,29 @@ class SplashActivity : AppCompatActivity() {
             finish()
         }, 3000)
     }
+
+    override fun onStart() {
+        super.onStart()
+        Log.d("SplashActivity", "onStart called")
+    }
+
+    override fun onResume() {
+        super.onResume()
+        Log.d("SplashActivity", "onResume called")
+    }
+
+    override fun onPause() {
+        super.onPause()
+        Log.d("SplashActivity", "onPause called")
+    }
+
+    override fun onStop() {
+        super.onStop()
+        Log.d("SplashActivity", "onStop called")
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        Log.d("SplashActivity", "onDestroy called")
+    }
     }
