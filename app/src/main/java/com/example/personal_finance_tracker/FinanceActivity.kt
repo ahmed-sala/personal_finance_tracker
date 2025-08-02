@@ -5,22 +5,18 @@ import android.widget.ArrayAdapter
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Spinner
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.personal_finance_tracker.databinding.ActivityFinanceBinding
 
 class FinanceActivity : AppCompatActivity() {
      private lateinit var binding: ActivityFinanceBinding
-     private lateinit var spinnerCategory: Spinner
-     private lateinit var etExpenseName: EditText
-     private lateinit var etExpenseAmount: EditText
-     private lateinit var btnSave: Button
      private lateinit var expenseSummary: ExpenseSummary
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding= ActivityFinanceBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        spinnerCategory= binding.spCategory
         val categories =  listOf(
             "Food",
             "Transport",
@@ -33,24 +29,23 @@ class FinanceActivity : AppCompatActivity() {
         )
         val adapter = ArrayAdapter(this@FinanceActivity, android.R.layout.simple_spinner_item, categories)
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
-        spinnerCategory.adapter = adapter
-        etExpenseName = binding.etExpenseName
-        etExpenseAmount = binding.etAmount
-        btnSave = binding.btnSave
-        btnSave.setOnClickListener {
-            val category = spinnerCategory.selectedItem.toString()
-            val expenseName = etExpenseName.text.toString()
-            val expenseAmount = etExpenseAmount.text.toString().toDoubleOrNull() ?: 0.0
-            if (expenseName.isNotEmpty() && expenseAmount > 0) {
+        binding.spCategory .adapter = adapter
+        binding.btnSave.setOnClickListener {
+            val category = binding.spCategory.selectedItem.toString()
+            val expenseName = binding.etExpenseName.text.toString()
+            val expenseAmount = binding.etAmount.text.toString().toDoubleOrNull() ?: 0.0
+            binding.btnSave.setOnClickListener {
+                val category = binding.spCategory.selectedItem.toString()
+                val expenseName = binding.etExpenseName.text.toString()
+                val expenseAmount = binding.etAmount.text.toString().toDoubleOrNull() ?: 0.0
+                if (expenseName.isNotEmpty() && expenseAmount > 0) {
                 expenseSummary = ExpenseSummary(category, expenseName, expenseAmount)
-                // add implicit intent here
-                etExpenseName.text.clear()
-                etExpenseAmount.text.clear()
+
+                    Toast.makeText(this@FinanceActivity, "Expense saved successfully", Toast.LENGTH_SHORT).show()
+                    binding.etExpenseName.text.clear()
+                    binding.etAmount.text.clear()
             }
-        }
 
-
-    }
-}
+}}}}
 
 
