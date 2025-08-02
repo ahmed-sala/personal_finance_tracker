@@ -6,19 +6,24 @@ import android.os.Handler
 import android.os.Looper
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
 import android.util.Log
+import com.example.personal_finance_tracker.databinding.ActivitySplashBinding
 
 class SplashActivity : AppCompatActivity() {
+    private val TAG = "SplashActivity"
+
+    private lateinit var binding : ActivitySplashBinding
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
-        setContentView(R.layout.activity_splash)
-        Log.d("SplashActivity", "onCreate called, starting MainActivity after delay")
+        Log.d(TAG, "onCreate called, starting MainActivity after delay")
+
+        binding= ActivitySplashBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
         Handler(Looper.getMainLooper()).postDelayed({
-            Log.d("SplashActivity", "Launching MainActivity")
+            Log.d(TAG, "Launching MainActivity")
             // Start MainActivity after 3 seconds
             val intent = Intent(this, MainActivity::class.java)
             startActivity(intent)
@@ -28,26 +33,26 @@ class SplashActivity : AppCompatActivity() {
 
     override fun onStart() {
         super.onStart()
-        Log.d("SplashActivity", "onStart called")
+        Log.d(TAG, "onStart called")
     }
 
     override fun onResume() {
         super.onResume()
-        Log.d("SplashActivity", "onResume called")
+        Log.d(TAG, "onResume called")
     }
 
     override fun onPause() {
         super.onPause()
-        Log.d("SplashActivity", "onPause called")
+        Log.d(TAG, "onPause called")
     }
 
     override fun onStop() {
         super.onStop()
-        Log.d("SplashActivity", "onStop called")
+        Log.d(TAG, "onStop called")
     }
 
     override fun onDestroy() {
         super.onDestroy()
-        Log.d("SplashActivity", "onDestroy called")
+        Log.d(TAG, "onDestroy called")
     }
     }
