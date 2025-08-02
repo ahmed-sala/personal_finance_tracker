@@ -13,9 +13,6 @@
         android:theme="@style/Theme.Personal_finance_tracker">
         <activity
             android:name=".SplashActivity"
-            android:exported="false" />
-        <activity
-            android:name=".FinanceActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -24,8 +21,11 @@
             </intent-filter>
         </activity>
         <activity
+            android:name=".FinanceActivity"
+            android:exported="false" />
+        <activity
             android:name=".MainActivity"
-            android:exported="false"></activity>
+            android:exported="false" />
     </application>
 
 </manifest>

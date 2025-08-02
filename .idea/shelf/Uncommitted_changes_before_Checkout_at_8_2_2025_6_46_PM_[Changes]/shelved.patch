@@ -1,0 +1,48 @@
+Index: app/src/main/java/com/example/personal_finance_tracker/FinanceActivity.kt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.example.personal_finance_tracker\r\n\r\nimport android.os.Bundle\r\nimport android.widget.ArrayAdapter\r\nimport android.widget.Button\r\nimport android.widget.EditText\r\nimport android.widget.Spinner\r\nimport android.widget.Toast\r\nimport androidx.appcompat.app.AppCompatActivity\r\nimport com.example.personal_finance_tracker.databinding.ActivityFinanceBinding\r\nimport android.util.Log\r\n\r\nclass FinanceActivity : AppCompatActivity() {\r\n     private lateinit var binding: ActivityFinanceBinding\r\n     private lateinit var expenseSummary: ExpenseSummary\r\n    override fun onCreate(savedInstanceState: Bundle?) {\r\n        super.onCreate(savedInstanceState)\r\n        binding= ActivityFinanceBinding.inflate(layoutInflater)\r\n        setContentView(binding.root)\r\n        Log.d(\"FinanceActivity\", \"onCreate called\")\r\n\r\n        val categories =  listOf(\r\n            \"Food\",\r\n            \"Transport\",\r\n            \"Entertainment\",\r\n            \"Utilities\",\r\n            \"Health\",\r\n            \"Education\",\r\n            \"Shopping\",\r\n            \"Other\"\r\n        )\r\n        val adapter = ArrayAdapter(this@FinanceActivity, android.R.layout.simple_spinner_item, categories)\r\n        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)\r\n        binding.spCategory .adapter = adapter\r\n        Log.d(\"FinanceActivity\", \"Categories loaded in spinner\")\r\n        binding.btnSave.setOnClickListener {\r\n            val category = binding.spCategory.selectedItem.toString()\r\n            val expenseName = binding.etExpenseName.text.toString()\r\n            val expenseAmount = binding.etAmount.text.toString().toDoubleOrNull() ?: 0.0\r\n            binding.btnSave.setOnClickListener {\r\n                val category = binding.spCategory.selectedItem.toString()\r\n                val expenseName = binding.etExpenseName.text.toString()\r\n                val expenseAmount = binding.etAmount.text.toString().toDoubleOrNull() ?: 0.0\r\n                if (expenseName.isNotEmpty() && expenseAmount > 0) {\r\n                expenseSummary = ExpenseSummary(category, expenseName, expenseAmount)\r\n                    Log.d(\"FinanceActivity\", \"Expense saved: $expenseSummary\")\r\n\r\n                    Toast.makeText(this@FinanceActivity, \"Expense saved successfully\", Toast.LENGTH_SHORT).show()\r\n                    binding.etExpenseName.text.clear()\r\n                    binding.etAmount.text.clear()\r\n                } else {\r\n                    Log.w(\r\n                        \"FinanceActivity\",\r\n                        \"Invalid input: name='$expenseName', amount=$expenseAmount\"\r\n                    )\r\n                    Toast.makeText(this, \"Please enter valid details\", Toast.LENGTH_SHORT).show()\r\n                }\r\n\r\n}}}}\r\n\r\n\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/java/com/example/personal_finance_tracker/FinanceActivity.kt b/app/src/main/java/com/example/personal_finance_tracker/FinanceActivity.kt
+--- a/app/src/main/java/com/example/personal_finance_tracker/FinanceActivity.kt	(revision c8f0be15ad197c498c0fb53c942496d9b6ae633f)
++++ b/app/src/main/java/com/example/personal_finance_tracker/FinanceActivity.kt	(date 1754149314853)
+@@ -34,9 +34,6 @@
+         binding.spCategory .adapter = adapter
+         Log.d("FinanceActivity", "Categories loaded in spinner")
+         binding.btnSave.setOnClickListener {
+-            val category = binding.spCategory.selectedItem.toString()
+-            val expenseName = binding.etExpenseName.text.toString()
+-            val expenseAmount = binding.etAmount.text.toString().toDoubleOrNull() ?: 0.0
+             binding.btnSave.setOnClickListener {
+                 val category = binding.spCategory.selectedItem.toString()
+                 val expenseName = binding.etExpenseName.text.toString()
+Index: app/src/main/res/layout/activity_main.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n<androidx.constraintlayout.widget.ConstraintLayout xmlns:android=\"http://schemas.android.com/apk/res/android\"\r\n    xmlns:app=\"http://schemas.android.com/apk/res-auto\"\r\n    xmlns:tools=\"http://schemas.android.com/tools\"\r\n    android:id=\"@+id/main\"\r\n    android:layout_width=\"match_parent\"\r\n    android:layout_height=\"match_parent\"\r\n    tools:context=\".MainActivity\"\r\n    android:background=\"@color/black\">\r\n\r\n    <LinearLayout\r\n        android:id=\"@+id/layoutContainer\"\r\n        android:layout_width=\"wrap_content\"\r\n        android:layout_height=\"wrap_content\"\r\n        android:orientation=\"vertical\"\r\n        android:gravity=\"center\"\r\n        android:padding=\"@dimen/padding_large\"\r\n        app:layout_constraintTop_toTopOf=\"parent\"\r\n        app:layout_constraintBottom_toBottomOf=\"parent\"\r\n        app:layout_constraintStart_toStartOf=\"parent\"\r\n        app:layout_constraintEnd_toEndOf=\"parent\">\r\n\r\n        <TextView\r\n            android:id=\"@+id/welcomTv\"\r\n            android:layout_width=\"wrap_content\"\r\n            android:layout_height=\"wrap_content\"\r\n            android:text=\"Welcome to Finance Tracker\"\r\n            android:textColor=\"@color/white\"\r\n            android:textSize=\"@dimen/Welcome_Size\"\r\n            android:textStyle=\"bold\"\r\n            android:layout_marginBottom=\"@dimen/margin_large\"\r\n            android:gravity=\"center\" />\r\n\r\n        <Button\r\n            android:id=\"@+id/btnTrack\"\r\n            android:layout_width=\"wrap_content\"\r\n            android:layout_height=\"wrap_content\"\r\n            android:text=\"@string/Track_Ur_Expence\"\r\n            android:layout_marginTop=\"@dimen/margin_large\"\r\n            android:textColor=\"@color/white\"\r\n            android:backgroundTint=\"@color/purple_500\"\r\n            android:padding=\"@dimen/padding_medium\"\r\n            android:textAllCaps=\"false\"/>\r\n\r\n        <Button\r\n            android:id=\"@+id/btnShare\"\r\n            android:layout_width=\"wrap_content\"\r\n            android:layout_height=\"wrap_content\"\r\n            android:text=\"@string/Share\"\r\n            android:layout_marginTop=\"@dimen/margin_large\"\r\n            android:textColor=\"@color/white\"\r\n            android:backgroundTint=\"@color/teal_700\"\r\n            android:padding=\"@dimen/padding_medium\"\r\n            android:textAllCaps=\"false\"/>\r\n    </LinearLayout>\r\n\r\n</androidx.constraintlayout.widget.ConstraintLayout>\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/res/layout/activity_main.xml b/app/src/main/res/layout/activity_main.xml
+--- a/app/src/main/res/layout/activity_main.xml	(revision c8f0be15ad197c498c0fb53c942496d9b6ae633f)
++++ b/app/src/main/res/layout/activity_main.xml	(date 1754149563546)
+@@ -6,7 +6,7 @@
+     android:layout_width="match_parent"
+     android:layout_height="match_parent"
+     tools:context=".MainActivity"
+-    android:background="@color/black">
++    android:background="@color/white">
+ 
+     <LinearLayout
+         android:id="@+id/layoutContainer"
+@@ -25,7 +25,7 @@
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:text="Welcome to Finance Tracker"
+-            android:textColor="@color/white"
++            android:textColor="@color/black"
+             android:textSize="@dimen/Welcome_Size"
+             android:textStyle="bold"
+             android:layout_marginBottom="@dimen/margin_large"
