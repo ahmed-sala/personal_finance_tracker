@@ -56,6 +56,31 @@ class FinanceActivity : AppCompatActivity() {
                     Toast.makeText(this, "Please enter valid details", Toast.LENGTH_SHORT).show()
                 }
 
-}}}}
+}}}
 
+    override fun onStart() {
+        super.onStart()
+        Log.d("FinanceActivity", "onStart called")
+    }
+
+    override fun onResume() {
+        super.onResume()
+        Log.d("FinanceActivity", "onResume called")
+    }
+
+    override fun onPause() {
+        super.onPause()
+        Log.d("FinanceActivity", "onPause called")
+    }
+
+    override fun onStop() {
+        super.onStop()
+        Log.d("FinanceActivity", "onStop called")
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        Log.d("FinanceActivity", "onDestroy called")
+    }
+}
 
