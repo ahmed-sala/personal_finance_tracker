@@ -6,17 +6,24 @@ import android.widget.Button
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import com.example.personal_finance_tracker.databinding.ActivityMainBinding
+import android.util.Log
+
 
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding : ActivityMainBinding
     lateinit var expenseSummary: ExpenseSummary
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        Log.d("MainActivity", "onCreate called")
+
 
         binding=ActivityMainBinding.inflate(layoutInflater)
         binding.btnTrack.setOnClickListener {
+            Log.d("MainActivity", "Navigating to FinanceActivity")
+
             val intent = Intent(this, FinanceActivity::class.java)
             startActivity(intent)
 
@@ -34,7 +41,7 @@ class MainActivity : AppCompatActivity() {
             val shareIntent = Intent(Intent.ACTION_SEND)
             shareIntent.putExtra(Intent.EXTRA_TEXT, shareText)
             shareIntent.type = "text/plain"
-
+            Log.d("MainActivity", "Sharing expense: $summary")
             startActivity(Intent.createChooser(shareIntent, "Share via"))
         }
 
